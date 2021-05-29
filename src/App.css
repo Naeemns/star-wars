@@ -8,13 +8,12 @@
         sans-serif;
 }
 
-
 .app {
     min-height: 100vh;
     background: #110b0b;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }

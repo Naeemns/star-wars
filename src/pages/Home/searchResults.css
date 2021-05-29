@@ -1,6 +1,6 @@
 /* Search results */
 .character-container {
-    max-height: 300px;
+    max-height: 283px;
 
     border-radius: 0 0 25px 25px;
 
@@ -8,17 +8,17 @@
     background-color: #2d2f30;
     color: #f2f2f2;
 
-    overflow-y: scroll;
+    overflow: hidden;
 }
 
-
-
+.character-container>h3 {
+    color: #949494;
+    padding: 5px 24px 10px 24px;
+}
 
 /* Search result characters */
 .character-details {
     padding: 5px 24px 10px 24px;
-    /* border: 1px solid red; */
-
     cursor: pointer;
 }
 
@@ -30,8 +30,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    /* border: 1px solid red; */
 }
 
 .character-details-gender,
