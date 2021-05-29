@@ -1,4 +1,4 @@
-# Star Wars Urban
+# Star Wars
 
 An application to search for star wars character.
 
