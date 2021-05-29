@@ -36,5 +36,10 @@
 
 .character-details-gender,
 .character-details>span {
+    text-transform: capitalize;
     color: #949494;
+}
+
+.active {
+    background-color: #414344;
 }
