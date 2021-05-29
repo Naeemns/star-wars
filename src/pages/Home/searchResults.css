@@ -1,0 +1,43 @@
+/* Search results */
+.character-container {
+    max-height: 283px;
+
+    border-radius: 0 0 25px 25px;
+
+    border-top: 2px solid #110b0b;
+    background-color: #2d2f30;
+    color: #f2f2f2;
+
+    overflow: hidden;
+}
+
+.character-container>h3 {
+    color: #949494;
+    padding: 5px 24px 10px 24px;
+}
+
+/* Search result characters */
+.character-details {
+    padding: 5px 24px 10px 24px;
+    cursor: pointer;
+}
+
+.character-details:hover {
+    background-color: #414344;
+}
+
+.character-details__name-gender {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.character-details-gender,
+.character-details>span {
+    text-transform: capitalize;
+    color: #949494;
+}
+
+.active {
+    background-color: #414344;
+}
