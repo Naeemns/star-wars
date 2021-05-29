@@ -41,9 +41,9 @@ yarn start
 
 ### Features
 
-- A user can search a star wars character
-- A user can navigate the search results using arrow keys
-- A user can select a character by pressing enter key
+- User can search a star wars character
+- User can navigate the search results using arrow keys
+- User can select a character by pressing enter key
 - User can click on back button to go back to home page
  
 
