@@ -4,6 +4,19 @@
     margin-top: 100px;
 }
 
+.person-page-loading {
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #FFEB00;
+    animation: loading-indicator 2s linear;
+}
+
 .person h1 {
     color: #FFEB00;
     font-size: 35px;
@@ -51,4 +64,13 @@
     background: #2d2f30;
     color: #FFEB00;
     cursor: pointer;
+}
+
+
+
+/* Loading animation */
+@keyframes loading-indicator {
+    to {
+        transform: rotateZ(360deg);
+    }
 }

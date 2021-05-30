@@ -83,7 +83,7 @@
 
 
 
-/* LOading animation */
+/* Loading animation */
 @keyframes loading-indicator {
     to {
         transform: rotateZ(360deg);
