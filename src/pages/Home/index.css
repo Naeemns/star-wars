@@ -64,6 +64,8 @@
 
 .search-action__loading {
     color: #FFEB00;
+    font-size: 25px;
+    animation: loading-indicator 2s linear;
 }
 
 .search-action__icon {
@@ -77,6 +79,15 @@
     background-color: #FFEB00;
 
     cursor: pointer;
+}
+
+
+
+/* LOading animation */
+@keyframes loading-indicator {
+    to {
+        transform: rotateZ(360deg);
+    }
 }
 
 
