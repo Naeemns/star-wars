@@ -5,8 +5,8 @@
 }
 
 .person-page-loading {
-    min-height: 95vh;
-    min-width: 95vw;
+    position: absolute;
+    top: 50%;
     font-size: 50px;
 
     display: flex;
