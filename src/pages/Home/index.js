@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import { BiSearch } from 'react-icons/bi';
 import { MdClear } from 'react-icons/md';
+import { VscLoading } from 'react-icons/vsc';
 import logo from './star-wars-logo.png';
-import loadingIndicator from './loading.gif';
 import './index.css';
 import SearchResults from './searchResults';
 
@@ -17,13 +17,12 @@ function HomePage() {
   const [apiCallCompleted, setApiCallCompleted] = useState(false);
   const history = useHistory();
 
-  const inputStyle = characterData?.length || apiCallCompleted ? "search-input search-input--data" : "search-input search-input--no-data"
+  const inputStyle = characterData?.length || apiCallCompleted || isLoading ? "search-input search-input--data" : "search-input search-input--no-data"
 
 
   const handleChange = (e) => {
     let { value } = e.target;
     setQuery(value);
-    debouncer();
   }
 
   const debouncer = () => {
@@ -35,11 +34,6 @@ function HomePage() {
 
   // Making api call
   const getData = async () => {
-    if (query.length <= 1) {
-      setCharacterData([]);
-      setApiCallCompleted(false);
-      return;
-    }
     setIsLoading(true);
     await axios.get(`https://swapi.dev/api/people/?search=${query}`)
       .then(res => {
@@ -79,6 +73,17 @@ function HomePage() {
   }
 
 
+  useEffect(() => {
+    if (query.length) {
+      debouncer();
+    }
+
+    return () => {
+      clearTimeout(seachId);
+    }
+  }, [query])
+
+
   return (
     <div onKeyDown={handleKeyDown} className="container">
       <div className="logo">
@@ -89,8 +94,7 @@ function HomePage() {
         {
           isLoading ?
             <div className="search-action">
-              {/*Loading indicator from https://loading.io/ */}
-              <img src={loadingIndicator} alt="Loading..." />
+              <VscLoading className="search-action__loading" />
             </div>
             : <div className="search-action">
               {
@@ -106,11 +110,15 @@ function HomePage() {
         }
       </div>
       {
-        apiCallCompleted && characterData.length === 0 ?
+        isLoading ?
           <div className="character-container">
-            <h3>No results found</h3>
+            <h3>Loading...</h3>
           </div>
-          : <SearchResults characterData={characterData} currentIndex={currentIndex} />
+          : apiCallCompleted && characterData.length === 0 ?
+            <div className="character-container">
+              <h3>No results found</h3>
+            </div>
+            : <SearchResults characterData={characterData} currentIndex={currentIndex} />
       }
     </div>
   );
